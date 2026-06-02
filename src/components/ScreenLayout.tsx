@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { asset } from '../asset';
 
 interface ScreenLayoutProps {
   children: ReactNode;
@@ -26,13 +27,13 @@ export function ScreenLayout({
       <div className="relative flex w-full max-w-md flex-col">
         <div className={`relative w-full overflow-hidden ${heroClass}`}>
           <img
-            src="/figures/background_image.png"
+            src={asset('/figures/background_image.png')}
             alt=""
             className="absolute inset-0 h-full w-full object-cover object-top"
           />
           {showLogo && (
             <img
-              src="/figures/structura-logo.svg"
+              src={asset('/figures/structura-logo.svg')}
               alt="structūra"
               className="absolute left-1/2 top-8 h-7 -translate-x-1/2"
             />

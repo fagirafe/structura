@@ -1,3 +1,4 @@
+import { asset } from '../asset';
 import { ScreenLayout } from './ScreenLayout';
 
 export function LoadingScreen() {
@@ -5,7 +6,7 @@ export function LoadingScreen() {
     <ScreenLayout>
       <div className="flex flex-1 flex-col items-center justify-center gap-4 px-6 py-16">
         <img
-          src="/figures/loading-icon.svg"
+          src={asset('/figures/loading-icon.svg')}
           alt=""
           className="structura-spin h-10 w-10"
         />

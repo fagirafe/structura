@@ -1,4 +1,5 @@
 import type { Alternative } from './math';
+import { asset } from './asset';
 
 // Описания технологий — из overview.md (раздел 5) + tech_cards.md.
 export interface TechCard {
@@ -32,7 +33,7 @@ export const TECH_CARDS: Record<Alternative['code'], TechCard> = {
       'Чувствителен к нарушениям гидро- и пароизоляции',
       'Кладка требует армирования',
     ],
-    image: '/figures/tech_card_image-gazobeton.png',
+    image: asset('/figures/tech_card_image-gazobeton.png'),
   },
   A2: {
     code: 'A2',
@@ -53,7 +54,7 @@ export const TECH_CARDS: Record<Alternative['code'], TechCard> = {
       'Высокая чувствительность к ошибкам монтажа',
       'Умеренный срок службы (~70 лет)',
     ],
-    image: '/figures/tech_card_image-karkasnik.png',
+    image: asset('/figures/tech_card_image-karkasnik.png'),
   },
   A3: {
     code: 'A3',
@@ -74,7 +75,7 @@ export const TECH_CARDS: Record<Alternative['code'], TechCard> = {
       'Сложный и трудоёмкий ремонт',
       'Долгие сроки, зависимость от погоды',
     ],
-    image: '/figures/tech_card_image-monolit.png',
+    image: asset('/figures/tech_card_image-monolit.png'),
   },
   A4: {
     code: 'A4',
@@ -95,6 +96,6 @@ export const TECH_CARDS: Record<Alternative['code'], TechCard> = {
       'Низкая устойчивость к влаге и климату',
       'Требуется принудительная вентиляция и огнезащита',
     ],
-    image: '/figures/tech_card_image-sip.png',
+    image: asset('/figures/tech_card_image-sip.png'),
   },
 };

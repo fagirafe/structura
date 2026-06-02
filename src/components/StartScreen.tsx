@@ -1,3 +1,4 @@
+import { asset } from '../asset';
 import { ScreenLayout } from './ScreenLayout';
 
 interface StartScreenProps {
@@ -10,7 +11,7 @@ export function StartScreen({ onStart }: StartScreenProps) {
       <div className="flex flex-1 flex-col justify-between px-8 pb-12 pt-14">
         <div className="flex flex-col items-start gap-6">
           <img
-            src="/figures/structura-logo.svg"
+            src={asset('/figures/structura-logo.svg')}
             alt="structūra"
             className="h-8 w-auto"
           />
