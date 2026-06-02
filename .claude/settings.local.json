@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(npm create *)",
-      "Bash(npm --version)"
+      "Bash(npm --version)",
+      "Bash(gh run *)"
     ]
   }
 }
