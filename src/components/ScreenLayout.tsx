@@ -7,11 +7,18 @@ interface ScreenLayoutProps {
   showLogo?: boolean;
   /** Высота фото-шапки. Карточка перекрывает её снизу скруглением. */
   heroHeight?: 'tall' | 'medium' | 'compact';
+  /**
+   * Фиксировать высоту экрана и убрать скролл: фото-шапка ужимается,
+   * а карточка с контентом тянется на всю оставшуюся высоту так, чтобы
+   * кнопка «Далее» всегда была у нижнего края. Для экрана с результатами
+   * выключено — там контент длинный и должен скроллиться.
+   */
+  fitScreen?: boolean;
 }
 
 const HERO_CLASS: Record<NonNullable<ScreenLayoutProps['heroHeight']>, string> = {
-  tall: 'h-[400px]',
-  medium: 'h-[360px]',
+  tall: 'h-[40vh] max-h-[400px]',
+  medium: 'h-[34vh] max-h-[360px]',
   compact: 'h-[120px]',
 };
 
@@ -19,13 +26,18 @@ export function ScreenLayout({
   children,
   showLogo = true,
   heroHeight = 'medium',
+  fitScreen = true,
 }: ScreenLayoutProps) {
   const heroClass = HERO_CLASS[heroHeight];
 
   return (
-    <div className="flex min-h-screen justify-center bg-black">
+    <div
+      className={`flex justify-center bg-black ${
+        fitScreen ? 'h-screen overflow-hidden' : 'min-h-screen'
+      }`}
+    >
       <div className="relative flex w-full max-w-md flex-col">
-        <div className={`relative w-full overflow-hidden ${heroClass}`}>
+        <div className={`relative w-full flex-none overflow-hidden ${heroClass}`}>
           <img
             src={asset('/figures/background_image.png')}
             alt=""
@@ -40,7 +52,7 @@ export function ScreenLayout({
           )}
         </div>
 
-        <div className="relative -mt-8 flex flex-1 flex-col rounded-t-[32px] bg-white">
+        <div className="relative -mt-12 flex flex-1 flex-col rounded-t-[32px] bg-white">
           {children}
         </div>
       </div>

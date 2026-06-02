@@ -11,7 +11,7 @@ export function ResultScreen({ result, onRestart }: ResultScreenProps) {
   const [winner, ...rest] = result.ranking;
 
   return (
-    <ScreenLayout heroHeight="compact">
+    <ScreenLayout heroHeight="compact" fitScreen={false}>
       <div className="flex flex-1 flex-col gap-8 px-6 pb-12 pt-8">
         <p className="text-base font-medium leading-snug text-ink-muted">
           Самый подходящий вариант под ваши критерии:
